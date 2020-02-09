@@ -13,7 +13,18 @@ const createDataStore = (operations = {}) => {
   return {
     getAll: () => records.values(),
     findById: id => records.get(id),
-    add: data => records.set(uuid(), data),
+    add: data => {
+      const id = uuid();
+
+      const withId = {
+        ...data,
+        id,
+      };
+
+      records.set(uuid(), withId);
+
+      return withId;
+    },
     ...connectedOperations,
   };
 };

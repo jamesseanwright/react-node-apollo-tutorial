@@ -1,6 +1,8 @@
 import { ApolloServer, gql } from 'apollo-server';
 import { messages, users } from './dataStores';
 
+const DEFAULT_AVATAR_URL = 'http://localhost:4001/images/default-avatar.jpg';
+
 const typeDefs = gql`
   type User {
     id: ID!
@@ -20,6 +22,10 @@ const typeDefs = gql`
     user(id: ID!): User
     messages(userId: ID): [Message]!
   }
+
+  type Mutation {
+    addUser(name: String!, avatarUrl: String): User
+  }
 `;
 
 const resolvers = {
@@ -29,6 +35,11 @@ const resolvers = {
     messages: (parent, { userId }) => userId
       ? messages.findByUserId(userId)
       : messages.getAll(),
+  },
+
+  Mutation: {
+    addUser: (parent, { name, avatarUrl = DEFAULT_AVATAR_URL }) =>
+      users.add({ name, avatarUrl }),
   },
 };
 
