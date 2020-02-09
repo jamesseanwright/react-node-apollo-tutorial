@@ -18,8 +18,9 @@ const createDataStore = (operations = {}) => {
   };
 };
 
-export const users = createDataStore({
-  findByUsername: records => id => records.get(id),
+export const messages = createDataStore({
+  findByUserId: records =>
+    userId => records.values().filter(r => r.userId === userId),
 });
 
-export const messages = createDataStore();
+export const users = createDataStore();

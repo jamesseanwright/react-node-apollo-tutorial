@@ -18,6 +18,25 @@ const typeDefs = gql`
   type Query {
     users: [User]!
     user(id: ID!): User
-    messages(userID: ID): [Message]!
+    messages(userId: ID): [Message]!
   }
 `;
+
+const resolvers = {
+  Query: {
+    users: () => users.getAll(),
+    user: (parent, { id }) => users.findById(id),
+    messages: (parent, { userId }) => userId
+      ? messages.findByUserId(userId)
+      : messages.getAll(),
+  },
+};
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+server.listen().then(({ url }) => {
+  console.log(`Server available at ${url}!`);
+});
