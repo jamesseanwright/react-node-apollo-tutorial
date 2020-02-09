@@ -3,6 +3,7 @@ import { messages, users } from './dataStores';
 
 const DEFAULT_AVATAR_URL = 'http://localhost:4001/images/default-avatar.jpg';
 
+// TODO: GraphQL best practices
 // TODO: format queries with Prettier
 const typeDefs = gql`
   type User {
