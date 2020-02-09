@@ -21,5 +21,3 @@ const typeDefs = gql`
     messages(userID: ID): [Message]!
   }
 `;
-
-
