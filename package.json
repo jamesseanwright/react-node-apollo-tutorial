@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel -d dist src",
     "start": "node dist/server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .babelrc.js 'src/**/*.js'"
   },
   "repository": {
     "type": "git",

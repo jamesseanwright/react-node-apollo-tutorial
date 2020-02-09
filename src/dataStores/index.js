@@ -30,8 +30,8 @@ const createDataStore = (operations = {}) => {
 };
 
 export const messages = createDataStore({
-  findByUserId: records =>
-    userId => records.values().filter(r => r.userId === userId),
+  findByUserId: records => userId =>
+    records.values().filter(r => r.userId === userId),
 });
 
 export const users = createDataStore();

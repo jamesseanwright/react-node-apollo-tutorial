@@ -32,9 +32,8 @@ const resolvers = {
   Query: {
     users: () => users.getAll(),
     user: (parent, { id }) => users.findById(id),
-    messages: (parent, { userId }) => userId
-      ? messages.findByUserId(userId)
-      : messages.getAll(),
+    messages: (parent, { userId }) =>
+      userId ? messages.findByUserId(userId) : messages.getAll(),
   },
 
   Mutation: {
