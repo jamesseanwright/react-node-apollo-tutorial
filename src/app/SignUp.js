@@ -4,15 +4,11 @@ const SignUp = ({ setUser }) => {
   const [name, setName] = React.useState('');
   const [avatarUrl, setAvatarUrl] = React.useState('');
 
-  const onSubmit = React.useCallback(
-    () => setUser({
+  return (
+    <form onSubmit={() => setUser({
       name,
       avatarUrl,
-    }),
-  );
-
-  return (
-    <form onSubmit={onSubmit}>
+    })}>
       <label htmlFor="name">Name</label>
       <input
         type="text"
