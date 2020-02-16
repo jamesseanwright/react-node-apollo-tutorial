@@ -1,39 +1,32 @@
 import React from 'react';
 
-const SIGN_UP_FORM_ELEMENTS = [
-  'name',
-  'avatarUrl',
-];
-
-const getValuesFromForm = (form, names) =>
-  Object.fromEntries(
-    [...form.elements]
-      .filter(el => names.includes(el.name))
-      .map(el => [
-        el.name,
-        el.value,
-      ]),
-  );
-
 const SignUp = ({ setUser }) => {
-  const onSubmit = React.useCallback(
-    e => {
-      e.preventDefault();
+  const [name, setName] = React.useState('');
+  const [avatarUrl, setAvatarUrl] = React.useState('');
 
-      setUser(getValuesFromForm(
-        SIGN_UP_FORM_ELEMENTS,
-        target,
-      ));
-    },
+  const onSubmit = React.useCallback(
+    () => setUser({
+      name,
+      avatarUrl,
+    }),
   );
 
   return (
     <form onSubmit={onSubmit}>
       <label htmlFor="name">Name</label>
-      <input type="text" name="name" />
+      <input
+        type="text"
+        name="name"
+        onChange={e => setName(e.currentTarget.value)}
+      />
 
       <label htmlFor="avatarUrl">Avatar URL</label>
-      <input type="text" name="avatarUrl" />
+
+      <input
+        type="text"
+        name="avatarUrl"
+        onChange={e => setAvatarUrl(e.currentTarget.value)}
+      />
 
       <input type="submit" value="Sign up!" />
     </form>
