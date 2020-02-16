@@ -27,15 +27,17 @@ const SignUp = ({ setUser }) => {
     },
   );
 
-  <form onSubmit={onSubmit}>
-    <label htmlFor="name">Name</label>
-    <input type="text" name="name" />
+  return (
+    <form onSubmit={onSubmit}>
+      <label htmlFor="name">Name</label>
+      <input type="text" name="name" />
 
-    <label htmlFor="avatarUrl">Avatar URL</label>
-    <input type="text" name="avatarUrl" />
+      <label htmlFor="avatarUrl">Avatar URL</label>
+      <input type="text" name="avatarUrl" />
 
-    <input type="submit" value="Sign up!" />
-  </form>
+      <input type="submit" value="Sign up!" />
+    </form>
+  );
 };
 
 export default SignUp;
