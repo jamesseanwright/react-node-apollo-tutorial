@@ -5,10 +5,14 @@ const SignUp = ({ setUser }) => {
   const [avatarUrl, setAvatarUrl] = React.useState('');
 
   return (
-    <form onSubmit={() => setUser({
-      name,
-      avatarUrl,
-    })}>
+    <form
+      onSubmit={() =>
+        setUser({
+          name,
+          avatarUrl,
+        })
+      }
+    >
       <label htmlFor="name">Name</label>
       <input
         type="text"
