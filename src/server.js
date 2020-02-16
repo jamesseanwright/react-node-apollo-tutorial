@@ -14,7 +14,7 @@ const typeDefs = gql`
 
   type Message {
     id: ID!
-    userId: ID!
+    user: User!
     date: String! # TODO: add Date scalar
     contents: String!
   }
