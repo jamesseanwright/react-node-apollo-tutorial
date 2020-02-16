@@ -37,3 +37,5 @@ const SignUp = ({ setUser }) => {
     <input type="submit" value="Sign up!" />
   </form>
 };
+
+export default SignUp;
