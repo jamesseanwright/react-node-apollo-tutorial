@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { withUserProvider } from './user';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const ConnectedApp = withUserProvider(App);
+
+ReactDOM.render(<ConnectedApp />, document.getElementById('app'));

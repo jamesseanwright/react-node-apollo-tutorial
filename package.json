@@ -4,7 +4,7 @@
   "description": "Boilerplate for my SitePoint Article _Getting Started with GraphQL_",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel -d dist src",
+    "build": "babel -d dist/server src/server && rollup -c",
     "start": "node dist/server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write .babelrc.js 'src/**/*.js'"
@@ -39,6 +39,8 @@
     "@babel/core": "7.8.4",
     "@babel/preset-env": "7.8.4",
     "@babel/preset-react": "7.8.3",
+    "@rollup/plugin-commonjs": "11.0.2",
+    "@rollup/plugin-node-resolve": "7.1.1",
     "prettier": "1.19.1",
     "rollup": "1.31.0",
     "rollup-plugin-babel": "4.3.3"
