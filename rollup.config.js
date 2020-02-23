@@ -17,26 +17,15 @@ module.exports = () => ({
     format: 'esm',
   },
   plugins: [
+    resolve({
+      main: true,
+      browser: true,
+    }),
+    commonjs({
+      include: 'node_modules/**',
+    }),
     babel(getBabelConfig(babelApi)),
     nodeGlobals(),
-    commonjs({
-      namedExports: {
-        'node_modules/react-dom/index.js': ['render'],
-        'node_modules/react/index.js': [
-          'Component',
-          'PropTypes',
-          'Fragment',
-          'Suspense',
-          'createElement',
-          'useEffect',
-          'useState',
-          'useContext',
-          'createContext',
-          'lazy',
-        ],
-      },
-    }),
-    resolve(),
   ],
   watch: {
     include: 'src/**/*.js',
