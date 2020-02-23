@@ -7,7 +7,7 @@
     "build": "babel -d dist/server src/server && rollup -c",
     "start": "node dist/server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write .babelrc.js 'src/**/*.js'"
+    "format": "prettier --write .babelrc.js rollup.config.js 'src/**/*.js'"
   },
   "repository": {
     "type": "git",

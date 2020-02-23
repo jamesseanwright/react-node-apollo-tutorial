@@ -27,7 +27,5 @@ const browserPresets = [
 const isBrowser = ({ name }) => name === 'rollup';
 
 module.exports = api => ({
-  presets: api.caller(isBrowser)
-    ? browserPresets
-    : nodePresets,
+  presets: api.caller(isBrowser) ? browserPresets : nodePresets,
 });

@@ -15,11 +15,7 @@ module.exports = () => ({
     dir: 'dist/app',
     format: 'esm',
   },
-  plugins: [
-    babel(getBabelConfig(babelApi)),
-    commonjs(),
-    resolve(),
-  ],
+  plugins: [babel(getBabelConfig(babelApi)), commonjs(), resolve()],
   watch: {
     include: 'src/**/*.js',
   },
